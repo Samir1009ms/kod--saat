@@ -1,0 +1,630 @@
+@import "variables";
+@import "mixins";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+#down {
+    width: 100%;
+    height: 80px;
+
+}
+
+.navbar {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    &--menu {
+        width: 85%;
+        height: 80px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: black;
+
+        .navbar--logo {
+            font-size: 25px;
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+                transform: scale(1.098);
+                transition: calc(0.56s);
+            }
+        }
+
+        .navbar--list {
+
+            @include tablet {
+                display: none;
+            }
+
+            .list--nav {
+                display: flex;
+                gap: 50px;
+                font-size: 20px;
+
+                .nav--text {
+
+                    &:hover {
+                        transform: scale(1.09);
+                        transition: calc(0.56s);
+
+                        a {
+                            color: red;
+                            border-bottom: 1px solid red;
+
+                        }
+
+                    }
+
+                    a {
+                        color: black;
+
+
+                    }
+
+                }
+            }
+
+
+        }
+
+        label {
+            display: none;
+
+            @include tablet {
+                display: flex;
+            }
+        }
+
+        .list--open {
+            width: 90%;
+            position: absolute;
+            height: 0;
+            top: 55px;
+            background-color: white;
+            display: flex;
+            overflow: hidden;
+            transition: 1s;
+            justify-content: flex-end;
+            text-align: center;
+
+            .list--nav {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+
+        input {
+            display: none;
+
+        }
+
+        input:checked~.list--open {
+            height: 100px;
+        }
+    }
+}
+
+
+#layout {
+    width: 100%;
+    height: 98vh;
+
+}
+
+.top {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+
+    &--container {
+        width: 40%;
+        height: 100%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        @include mobile {
+            width: 60%;
+        }
+
+        .top--text {
+
+            .top--home {
+                text-transform: none;
+            }
+
+            .top--end {
+                text-transform: none;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.box {
+    width: 100%;
+    background-color: #4d0e0e;
+
+    &--container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+
+        @include mobile {
+            width: 90%;
+            flex-direction: column-reverse;
+            padding-top: 40px;
+        }
+        @include tablet-mini {
+            flex-direction: column-reverse;
+            gap: 10px;
+        }
+
+        .box--left {
+            width: 50%;
+
+            @include mobile {
+                width: 100%;
+            }
+
+            @include tablet-mini {
+                width: 100%;
+            }
+
+            .left--photo {
+
+                width: 100%;
+
+
+            }
+        }
+
+        .box--right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            @include mobile {
+                width: 100%;
+                align-items: flex-start;
+            }
+            @include tablet-mini {
+                width: 100%;
+            }
+
+            .right--container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 20px;
+                color: white;
+
+                @include mobile {
+                    margin-bottom: 20px;
+                }
+
+                .right--text {
+                    font-size: 48px;
+
+                    @include mobile {
+                        font-size: 32px;
+                    }
+                }
+
+                .right--center {
+                    font-size: 16px;
+
+                }
+
+                .right--submit {
+                    padding: 14px 28px;
+                    border: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(141, 139, 139);
+                        transition: calc(0.45s);
+                    }
+
+                }
+            }
+        }
+
+
+    }
+}
+
+.center {
+    width: 100%;
+    height: 90%;
+    background-color: white;
+
+    @include mobile {
+        padding-bottom: 25px;
+        height: auto;
+    }
+    @include tablet-mini {
+        padding-bottom: 25px;
+        height: auto;
+    }
+
+
+    .center--container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        height: 95%;
+
+        @include mobile {
+            width: 90%;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @include tablet-mini {
+            flex-direction: column;
+    gap: 40px;
+    align-items: center;
+        }
+
+        .center--left {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 25px;
+
+            @include mobile {
+                width: 100%;
+                margin-top: 25px;
+                padding-top: 15px;
+            }
+
+            @include tablet-mini {
+                width: 70%;
+            }
+
+            .left--text {
+                font-size: 40px;
+                text-transform: none;
+
+
+                @include mobile {
+                    font-size: 28px;
+                }
+
+            }
+
+
+            .left--center {
+                font-size: 16px;
+                text-transform: none;
+
+            }
+
+            .left--submit {
+                padding: 14px 28px;
+                border: none;
+                cursor: pointer;
+                background-color: black;
+                color: white;
+
+                &:hover {
+                    background-color: rgb(141, 139, 139);
+                    transition: calc(0.45s);
+                }
+
+            }
+        }
+
+        .center--right {
+            width: 65%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            @include mobile {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+            }
+
+            @include tablet-mini {
+                flex-direction: column;
+                width: 70%;
+                height: auto;
+            }
+            .right--img {
+                width: 32%;
+                height: 72%;
+
+                @include mobile {
+                    width: 100%;
+                }
+
+                @include tablet-mini {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.row {
+    width: 100%;
+    height: 60%;
+
+    @include mobile {
+        height: 34%;
+    }
+    @include tablet-mini {
+        height: 34%;
+    }
+
+    &--container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .fixed {
+
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            width: 100%;
+
+            .row--img {
+                width: 100%;
+                position: fixed;
+                top: 30px;
+                z-index: -1;
+
+                @include mobile {
+                    top: 180px;
+                }
+            }
+        }
+
+        .row--text {
+            position: relative;
+            display: flex;
+        }
+
+        .text--row {
+            font-size: 40px;
+            color: white;
+        }
+    }
+}
+
+.bottom {
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        padding-top: 25px;
+    }
+    @include tablet-mini {
+        padding-top: 25px;
+        
+    height: 41%;
+
+    }
+
+    &--container {
+        width: 80%;
+        display: flex;
+        gap: 10px;
+
+        @include mobile {
+            flex-direction: column;
+            width: 90%;
+        }
+
+        .bottom--left {
+            width: 50%;
+
+            @include mobile {
+                width: 100%;
+            }
+
+            .bottom--img {
+
+                .bottom--photo {
+                    width: 100%;
+                }
+            }
+
+            .bottom--text {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-top: 25px;
+
+                .bottom--top {}
+
+                .bottom--center {}
+
+                .bottom--buton {
+                    padding: 13px 25px;
+                    background-color: black;
+                    color: white;
+                    border: none;
+
+                    &:hover {
+                        background-color: rgb(141, 139, 139);
+                        transition: calc(0.45s);
+                    }
+                }
+
+            }
+        }
+
+        .bottom--right {
+            width: 50%;
+
+            @include mobile {
+                width: 100%;
+            }
+
+            .bottom--img {
+
+
+                .bottom--photo {
+                    width: 100%;
+                }
+            }
+
+            .bottom--text {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-top: 25px;
+
+                .bottom--top {}
+
+                .bottom--center {}
+
+                .bottom--submit {
+                    padding: 13px 30px;
+                    background-color: black;
+                    color: white;
+                    border: none;
+
+                    &:hover {
+                        background-color: rgb(141, 139, 139);
+                        transition: calc(0.45s);
+                    }
+
+                }
+
+            }
+        }
+
+    }
+}
+
+.son {
+    width: 100%;
+
+    &--container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+
+        .son--img {
+            width: 100%;
+            position: relative;
+        }
+
+        .son--text {
+            position: absolute;
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 31px;
+            padding-left: 30px;
+
+            @include mobile {
+                gap: 6px;
+                width: 100%;
+            }
+            @include tablet-mini {
+                gap: 6px;
+                width: 100%;
+            }
+
+            h3 {
+                font-size: 35px;
+
+                @include mobile {
+                    font-size: 22px;
+                }
+                @include tablet-mini {
+                    font-size: 22px;
+                }
+            }
+
+
+            .son--box {
+                font-size: 40px;
+
+                @include mobile {
+                    font-size: 24px;
+                }
+                @include tablet-mini {
+                    font-size: 24px;
+                }
+
+            }
+
+            .email {
+                padding: 13px 30px;
+                border: none;
+                outline: none;
+
+            }
+
+            .son--submit {
+                padding: 13px 26px;
+                background-color: black;
+                color: white;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(141, 139, 139);
+                    transition: calc(0.45s);
+                }
+            }
+        }
+    }
+}
+
+#end {
+
+    width: 100%;
+
+}
